@@ -20,12 +20,6 @@ CC  = nxdk-cc
 CXX = nxdk-cxx
 
 ifeq ($(UNAME_S),Linux)
-LD           = lld -flavor link
-LIB          = llvm-lib
-AS           = clang
-CC           = clang
-CXX          = clang++
-OBJCOPY      = objcopy
 ifneq ($(UNAME_M),x86_64)
 CGC          = $(NXDK_DIR)/tools/cg/linux/cgc.i386
 else
@@ -33,12 +27,6 @@ CGC          = $(NXDK_DIR)/tools/cg/linux/cgc
 endif #UNAME_M != x86_64
 endif
 ifeq ($(UNAME_S),Darwin)
-LD           = lld -flavor link
-LIB          = llvm-lib
-AS           = clang
-CC           = clang
-CXX          = clang++
-OBJCOPY      = llvm-objcopy
 CGC          = $(NXDK_DIR)/tools/cg/mac/cgc
 endif
 ifneq (,$(findstring MSYS_NT,$(UNAME_S)))
